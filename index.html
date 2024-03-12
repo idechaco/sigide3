@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="stylesheet" href="./css/leaflet.css" />
+    <link rel="stylesheet" href="./css/alertify.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+ 
+ 
+    <link rel="stylesheet" href="./css/visor.css" >
+    <link rel="stylesheet" href="./css/arbol.css" />
+    <title>Sigide 3.0</title>
+</head>
+<body>
+    <div class="encabezado">
+        <img src="./img/logo.png" alt="">
+    </div>
+    <div id="map"></div>
+
+    <div class="glass capas_publicadas">
+        <div class="box_titulo">Capas por Categorias</div>
+        <div class="opciones"> 
+            <select class="btn_base_activo btn_categoria btn_base" id="pestanias" onchange="CambioPestania()" onclick="CapasPorCatetoria()"></select>
+            <button class="btn_base btn_capa_activa" onclick="CapasActivas()" >Capas Activas</button>
+            <button class="btn_base btn_busqueda_capa" onclick="BusquedaDeCapas()">Buscar Capas y Recursos</button>
+        </div>
+        <hr/>
+        <div id="XA0" class="arboles"  style="text-align: left"></div>
+        <div class="capa_activa "  style="text-align: left; display: none;" >
+         
+        </div>
+        <div class="busqueda_capa"  style="text-align: left; display: none; "></div>
+        <hr/>
+    </div>  
+
+    <div class="glass capas_base">
+        <div class="box_titulo" style="text-align: center;">Capas base</div>
+        <div class="grupo_imagenes" >
+                     
+        </div>
+    </div>  
+
+    <div class="box_login">
+        <button class="btn_usuario btn_login" onclick="AccesoUsuario()">Iniciar</button> 
+        <button class="btn_accion btn_login">Registrarse</button>
+    </div>
+
+    <div class="box_login_access" >
+        <div class="box_login_acc">
+            <div class="titulo">
+                <img src="./img/Logos/logo_gobierno_azul.png" class="logo_acc">
+                <span>ACCESO SIGIDE 3.0</span>
+            </div>
+            <div style="margin-top: 10px; text-align: center;" >
+                <div class="grupo">
+                     <img src="./img/24x/usuario.png" alt="">
+                     <input type="text" placeholder="Usuario" id="inp_usuario">
+                </div>
+                <div style="margin-top: 5px" class="grupo">
+                    <img src="./img/24x/pass.png" alt="">
+                    <input type="password" placeholder="Contraseña" id="inp_pass">
+                </div>
+                <div style="margin-top: 5px" class="grupo">
+                    <img src="./img/24x/pass.png" alt="">
+                    <select class="espacio_trabajo">
+                        <option value="0">Público y Privado</option>
+                        <option value="1">Rubita</option>
+                        <option value="2">Campo de Tiro</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-top: 10px; text-align: center; ">
+                <button class="btn_base" onclick="EnviarLogin()">Acceder</button>
+                <button class="btn_base">Registrarme</button>
+                <button class="btn_base" onclick="QuitarFondo()">Cancelar</button>
+            </div>
+           
+
+        </div>
+    </div>
+
+    <div class="botones">
+        <div>
+            <img src="./img/24x/layers.png" alt="" class="btn_capas box_capas_publicadas" onclick="vista_capas()"  />
+            <div class="tt_btn_capas">Muestra/Ocultas las capas publicadas</div>
+        </div>
+        <div style="margin-top: 5px;" >
+            <img src="./img/24x/tiles.png" alt="" class="btn_capas box_capas_base" onclick="vista_capas_base()"/>
+            <div class="tt_btn_capas">Muestra y Activa las capas base</div>
+        </div>
+        
+    </div>
+    <div class="loading">
+        <img src="./img/cargando.gif" alt="">
+        <span class="titulo_loading">Cargando las capas publicadas</span>
+    </div>
+    <script src="./js/config.js"></script>
+    <script src="./js/alertify.min.js"></script>
+    <script src="./js/leaflet.js"></script>
+    <script src="./js/visor.js"></script>
+    <script src="./js/arbol.js"></script>
+   
+</body>
+</html>

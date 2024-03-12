@@ -1,0 +1,2 @@
+//Trae todos los datos
+GET http://idechaco.gob.ar/Sigide3/apis/capa_base.php

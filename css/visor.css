@@ -1,0 +1,185 @@
+@font-face { font-family: 'Ubuntu'; src: url('./fonts/UbuntuCondensed-Regular.ttf') format('truetype'); }
+@font-face {font-family: 'Noto'; src: url('./fonts/NotoSerif-Bold.ttf') format('truetype'); }
+
+body {
+    padding: 0px;
+    margin: 0px;
+    overflow-y: hidden;
+   
+}
+
+.encabezado {
+    position: absolute;
+    top: 0px; left: 0px; z-index: 500;
+}
+
+.encabezado img {
+    width: 100vw;
+    height: 50px;
+}
+
+#map { height: 100vh;   }
+
+
+
+.botones {
+    position: absolute;
+    top: 70px; left: 10px;  
+    z-index: 400;
+}
+
+.btn_capas {
+    background: white;
+    backdrop-filter: blur(10px);   box-shadow: 0px 0px 10px rgba(0, 0, 0, .6);
+    border: 3px ridge silver; padding: 2px; border-radius: 5px;
+}
+
+.btn_capas:hover {
+   box-shadow: 0px 0px 10px cyan; cursor: pointer;
+}
+
+.btn_capas:hover ~.tt_btn_capas {
+    display: block;
+}
+.tt_btn_capas {
+    position: relative; font-weight: bold;
+    left: 40px; top: -25px; display: none;
+    text-shadow: 2px 2px white; height: 0px;
+}
+
+
+.btn_login {
+    box-shadow:inset 0px 0px 14px -3px #f2fadc;
+	background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
+	background-color:#dbe6c4;
+	border:1px solid #b2b8ad;
+	cursor:pointer;
+	color:#757d6f;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:3px 10px;
+	
+	text-shadow:0px 1px 0px #ced9bf;
+}
+
+.btn_login:hover {
+	background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
+	background-color:#9ba892;
+}
+
+.box_login {
+    position: absolute;
+    display: flex;
+    top: 60px; right: 5px;
+    width: auto; border-radius:6px;
+    border: 2px groove silver; box-shadow: 0px 0px 5px 2px grey;
+    z-index: 500; padding: 1px;
+}
+.btn_accion {
+    border-radius:0px 6px 6px 0px;
+}
+.btn_usuario {
+    border-radius:6px 0px 0px 6px;
+}
+
+.btn_base {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:5px;
+    height: 20px;
+	border:1px solid #4e6096;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	padding:2px 4px;
+	text-shadow:0px 1px 0px #283966;
+}
+
+.btn_base:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+
+.btn_base_activo {
+	background:linear-gradient(to bottom, #087e08 5%, #448b23 100%);
+	background-color:#087e08;
+    border-radius:5px;
+    border:1px solid #087e08;
+    color:#ffffff;
+}
+
+.btn_base_activo:hover {
+	background:linear-gradient(to bottom, #448b23 5%, #087e08 100%);
+	background-color:#448b23;
+}
+
+.box_login_access {
+    position: absolute; display: none;
+    top: 50px; height: 100%; width:100%; overflow: hidden;
+    background: rgba(200, 200, 200, 0.2);
+    backdrop-filter: blur(5px); 
+    z-index: 1000;  
+}
+
+.box_login_acc {
+    height: 230px;  width: 406px; padding: 2px;
+    border: 2px groove grey; 
+    border-bottom: 5px solid #00203a;
+    position: absolute;
+     top: 50%;  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo_acc {
+    width: 405px
+}
+
+.box_login_acc .titulo span {
+    font-family: "Noto"; font-weight: bold; color: white;
+    margin-left: -180px; font-size: 16px; position: relative; top: -30px
+}
+.grupo {
+    width: 282px; padding: 2px; display: flex;
+    border: 1px groove black;
+    margin-left: 60px; border-radius: 5px;
+}
+
+.grupo input {
+    width: 245px; border-radius: 0px 5px 5px 0px; padding-left: 5px; 
+    color: blue; border: 1px groove black; margin-left: 5px;
+}
+
+.grupo .espacio_trabajo {
+    width: 253px; border-radius: 0px 5px 5px 0px; padding-left: 5px; 
+    color: blue; border: 1px groove black; margin-left: 5px;
+}
+
+.user_rol {
+    width: 10px; height: 10px; border-radius: 5px; border: 2px groove white;
+    font-size: 10px; background: black; padding: 1px 2px 2px 2px; margin-left: 10px
+}
+
+.loading {
+    position: absolute; width:auto; height: 25px; border-radius: 5px; color: white;
+    bottom: 5px; left: 5px; border: 2px groove black; background: olivedrab;
+   padding: 2px; z-index: 5000; box-shadow: 0px 0px 5px black; opacity: 90%;
+
+}
+
+.loading img {
+    width: 25px; height: 25px;
+}
+
+.loading span {
+    font-size: 16px; font-family: "Ubuntu";
+    position: relative; top: -8px; font-weight: bold; padding-right: 10px;
+}
+
+.box_capas_publicadas, .box_capas_base {
+    display: none;
+
+}
+

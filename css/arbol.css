@@ -1,0 +1,118 @@
+.glass {
+    background: rgba(200, 200, 200, 0.2);
+    border-radius: 5px; 
+    border: 1px groove coral;
+    padding: 1px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .6);
+   
+}
+
+.capas_publicadas {
+    width: 400px; height: 600px;
+    text-align: center;
+    position: absolute; display: none;
+    top: 70px; left: 50px; z-index: 500;
+}
+
+.capas_base {
+    width: auto; height: auto; cursor: pointer;
+    position: absolute; display: none; max-width: 560px;
+    top: 110px; left: 50px; z-index: 500;
+   
+}
+
+.box_titulo {
+    font-size: 14px;  border-radius: 5px 5px 0px 0px;  border: 1px groove coral;
+    color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, rgba(5,0,36,0.63) 0%, rgba(255,127,0,1) 50%, rgba(24,63,135,1) 100%);
+}
+
+.opciones {
+    padding: 2px;
+}
+
+.opciones  {
+    display: flex;
+    justify-content: space-around
+} 
+
+
+.arboles, .busqueda_capa {
+    font-family: "Ubuntu"; font-size: 14px;
+    padding-left: 5px;
+    height:  500px;
+    overflow-y: auto;
+
+}
+
+hr {
+    margin: 2px 0px 0px 0px;
+}
+
+
+[class^="flechaXA"] {
+    transition: transform 0.5s;
+    width: 16px; height: 16px;
+    cursor: pointer;
+}
+
+
+
+
+
+.visible {
+    display: block;
+}
+
+.flechaXA.visible {
+    transform: rotate(90deg)
+}
+
+.sinhijos {
+    opacity: 0%;
+}
+
+.ckeck_box {
+    cursor: pointer;
+}
+
+.img_tiles {
+    width: 100px; height: 80px;
+    margin-right: 3px;
+    border: 1px ridge black; border-radius: 5px;
+}
+
+.tile_activo {
+    border: 5px ridge crimson; box-shadow: 0px 0px 2px black;
+}
+
+.grupo_imagenes {
+    padding: 5px; height: 103px; max-width: 520px; overflow-y: hidden; overflow-x: auto; display: flex;
+}
+
+
+.grupo_imagenes p{
+    position: absolute; width: 0px; margin-top: 5px; font-size: 10px; 
+    font-weight: bold; text-shadow: 0px 0px 2px black; color: white
+}
+
+.select + span {
+    color: red;
+}
+
+.cursor_x {
+    cursor: pointer;
+}
+
+.resaltado {
+   color: black; text-shadow: 1px 1px 0px #aac8dc;
+}
+
+.gris {
+    color: black;
+}
+
+.gris:hover {
+    background:  #aac8dc;
+}
