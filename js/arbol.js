@@ -23,9 +23,9 @@ function TraerTodos(op_capa, op_pestania, op_categoria, op_recurso) {
         method: 'GET', // Método de solicitud (puede ser POST también)
         dataType: 'json', // Tipo de datos esperado (JSON en este caso)
         success: function(data) { 
+            if (op_recurso) { TablaRecursos = data.Recursos;}
             if (op_capa) { TablaCapas = data.Capas; ArbolBusquedaCapas();  }
             if (op_pestania) {TablaPestanias = data.Pestanias; CargarTablaPestanias();}
-            if (op_recurso) { TablaRecursos = data.Recursos;}
             if (op_categoria) { TablaCategorias = data.Categorias; CargarTablaCategorias();}
             Cargando(false, "", "box_capas_publicadas")
         },
@@ -142,14 +142,7 @@ function AgregarNodosRecurso(parent_id, id, titulo, archivo, opcion, tipo ) {
 
 
 
-function ArbolBusquedaCapas() {
-    $(".capa_busqueda").empty();
-    $.each(TablaCapas, function (i, item) {
-        if (item.tipo_capa != null) {
-            AgregarNodosCapaBusqueda("XA"+item.id_capa, item.titulo, item.tipo_capa )
-        }
-    })
-}
+
 
 
 
@@ -171,20 +164,35 @@ function AgregarNodosCategoria(parent_id, id, nombre, opcion ) {
     }
 }
 
+function ArbolBusquedaCapas() {
+    $(".capa_busqueda").empty();
+    $.each(TablaCapas, function (i, item) {
+        if (item.tipo_capa != null) {
+            AgregarNodosCapaBusqueda("XA"+item.id_capa, item.titulo, item.tipo_capa, '' )
+        }
+    })
 
+    $.each(TablaRecursos, function (i, item) {
+        AgregarNodosCapaBusqueda("XA"+item.id_recurso, item.titulo, item.tipo, item.archivo )
+    })
+}
 
 //Añade un registro de Capas
-function AgregarNodosCapaBusqueda(id, nombre, tipo ) {
+function AgregarNodosCapaBusqueda(id, nombre, tipo, archivo) {
     var marginLeftValue = 0
     $(".busqueda_capa").append("<div id='"+id+"' style='margin-left: "+marginLeftValue+"px' > ")
-    if (tipo == 'pdf') {
-        $(".busqueda_capa").append("<img src='./img/16x/pdf.png' style='margin-left: 2px'/> ")
-        $(".busqueda_capa").append("<span style='margin-left: 2px' onclick=\"VerPdf('"+nombre+".pdf')\" class='cursor_x'>"+nombre+"</span>")
-    }else {
+       if (tipo == 'pdf') {
+            $("#"+id).append("<img src='./img/16x/pdf.png' style='margin-left: 2px'/> ")
+            $("#"+id).append("<span style='margin-left: 2px' onclick=\"VerPdf('"+archivo+"')\" class='cursor_x gris'>"+nombre+"</span>")
+       }else if (tipo == 'pagina'){
+            $("#"+id).append("<img src='./img/16x/pagina.png' style='margin-left: 2px'/> ")
+            $("#"+id).append("<span style='margin-left: 2px' onclick=\"IrUrl('"+archivo+"')\" class='cursor_x gris' >"+nombre+"</span>")
+        }else{
         $(".busqueda_capa").append("<img src='./img/16x/uncheck.png' style='margin-left: 2px' class='check_box"+id+" select cursor_x' onclick=\"Sele(\'"+id+"\')\" /> ")
         $(".busqueda_capa").append("<img src='./img/16x/tipo_"+tipo+".png' style='margin-left: 2px'/> ")
         $(".busqueda_capa").append("<span style='margin-left: 2px'  >"+nombre+"</span>")
-    }
+       }
+       
     $(".busqueda_capa").append("</div>")
 }
 
